@@ -72,7 +72,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#">
-                        <img id="logo" src="images/Logo_main.png" class="logo img-responsive">
+                        <img id="logo" src="{{ asset('assets/frontend/images/Logo_main.png') }}" class="logo img-responsive">
                     </a>
                 </div>
 
@@ -761,7 +761,7 @@
         <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
         {!! Toastr::message() !!}
         <script>
-            @if($errors->any() as $error)
+            @if($errors->any())
                 @foreach($errors->all() as $error)
                     toastr.error('{{ $error }}','Error',{
                         closeButton: true,

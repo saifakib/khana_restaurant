@@ -13,6 +13,9 @@
 
 Route::get('/', 'HomeController@index')->name('home');
 
+
+Auth::routes();
+
 Route::get('/wellcome', function () {
     return view('welcome');
 });
@@ -21,8 +24,7 @@ Route::get('/wellcome', function () {
 Route::group(['as'=>'admin.', 'prefix'=>'admin','namespace'=>'Admin', 'middleware'=>['auth','admin']],function(){
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
     Route::resource('category', 'CategoryController');
+    Route::resource('slider', 'SliderController');
 });
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');

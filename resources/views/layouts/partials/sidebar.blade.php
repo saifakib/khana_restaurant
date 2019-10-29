@@ -15,6 +15,9 @@
         <li class="{{ Request::is('admin/food*') ? 'current' : '' }}">
             <a class="waves-effect" href=""><i class="menu-icon mdi mdi-email"></i><span>Food Item</span><span class="notice notice-danger">New</span></a>
         </li>
+        <li class="{{ Request::is('admin/slider*') ? 'current' : '' }}">
+            <a class="waves-effect" href="{{ route('admin.slider.index')}}"><i class="menu-icon mdi mdi-calendar"></i><span>Slider</span></a>
+        </li>
     </ul>
     <!-- /.menu js__accordion -->
     @endif
