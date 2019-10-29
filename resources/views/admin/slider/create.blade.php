@@ -10,7 +10,7 @@
 
 @section('content')
 <div class="row small-spacing">
-    <form action="{{ route('admin.slider.store')}}" method="POST" enctype="mulitipart/form-data">
+    <form action="{{ route('admin.slider.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="col-lg-6 col-xs-12">
 			<div class="box-content card white">

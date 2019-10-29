@@ -10,7 +10,7 @@
 
 @section('content')
 <div class="row small-spacing">
-    <form action="{{ route('admin.slider.update', $slider->id)}}" method="POST" enctype="mulitipart/form-data">
+    <form action="{{ route('admin.slider.update', $slider->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="col-lg-6 col-xs-12">

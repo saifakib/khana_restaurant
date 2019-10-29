@@ -48,7 +48,10 @@
 							<tr>
 								<td>{{ $key + 1 }}</td>
 								<td>{{ $category->name }}</td>
-								<td>{{ $category->slug }}</td>
+								<td class="text-center">
+									<button type="button" class="btn bg-success btn-circle">
+									<span><b>{{ $category->items->count() }}</b></span></button>
+								</td>
 								<td>{{ $category->created_at }}</td>
 								<td>
 									<a class="btn btn-info btn-sm waves-effect"

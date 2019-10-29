@@ -25,6 +25,7 @@ Route::group(['as'=>'admin.', 'prefix'=>'admin','namespace'=>'Admin', 'middlewar
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
     Route::resource('category', 'CategoryController');
     Route::resource('slider', 'SliderController');
+    Route::resource('item','ItemController');
 });
 
 
