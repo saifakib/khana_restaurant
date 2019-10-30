@@ -573,7 +573,7 @@
 
         <!--== 15. Reserve A Table! ==-->
         <section id="reserve" class="reserve">
-            <img class="img-responsive section-icon hidden-sm hidden-xs" src="images/icons/reserve_black.png">
+            <img class="img-responsive section-icon hidden-sm hidden-xs" src="{{ asset('assets/frontend/images/icons/reserve_black.png') }}">
             <div class="wrapper">
                 <div class="container-fluid">
                     <div class="row dis-table">
@@ -591,13 +591,14 @@
 
 
         <section class="reservation">
-            <img class="img-responsive section-icon hidden-sm hidden-xs" src="images/icons/reserve_color.png">
+            <img class="img-responsive section-icon hidden-sm hidden-xs" src="{{ asset('assets/frontend/images/icons/reserve_color.png') }}">
             <div class="wrapper">
                 <div class="container-fluid">
                     <div class=" section-content">
                         <div class="row">
                             <div class="col-md-5 col-sm-6">
-                                <form class="reservation-form" method="post" action="reserve.php">
+                                <form class="reservation-form" method="POST" action="{{ route('reservation.store')}}">
+                                @csrf 
                                     <div class="row">
                                         <div class="col-md-6 col-sm-6">
                                             <div class="form-group">
@@ -622,7 +623,7 @@
                                         </div>
 
                                         <div class="col-md-12 col-sm-12">
-                                            <button type="submit" id="submit" name="submit" class="btn btn-reservation">
+                                            <button type="submit" id="submit" class="btn btn-reservation">
                                                 <span><i class="fa fa-check-circle-o"></i></span>
                                                 Make a reservation
                                             </button>
@@ -704,8 +705,8 @@
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
                         <div class="row">
-                             <form class="contact-form" method="post" action="contact.php">
-                                
+                             <form class="contact-form" method="POST" action="{{ route('contact.store')}}">
+                                @csrf 
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <input  name="name" type="text" class="form-control" id="name" required="required" placeholder="  Name">
@@ -724,7 +725,7 @@
 
                                 <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
                                     <div class="text-center">
-                                        <button type="submit" id="submit" name="submit" class="btn btn-send">Send </button>
+                                        <button type="submit" id="submit" class="btn btn-send">Send </button>
                                     </div>
                                 </div>
                             </form>

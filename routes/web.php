@@ -19,6 +19,9 @@ Auth::routes();
 Route::get('/wellcome', function () {
     return view('welcome');
 });
+Route::post('/reservation', 'ReservationController@store')->name('reservation.store');
+Route::post('/contact', 'ContactController@store')->name('contact.store');
+
 
 
 Route::group(['as'=>'admin.', 'prefix'=>'admin','namespace'=>'Admin', 'middleware'=>['auth','admin']],function(){
@@ -26,6 +29,17 @@ Route::group(['as'=>'admin.', 'prefix'=>'admin','namespace'=>'Admin', 'middlewar
     Route::resource('category', 'CategoryController');
     Route::resource('slider', 'SliderController');
     Route::resource('item','ItemController');
+
+    Route::get('/reservation','ReservationController@index')->name('reservation.index');
+    Route::put('/reservation/{id}','ReservationController@update')->name('reservation.update');
+    Route::delete('/reservation/delete/{id}','ReservationController@destroy')->name('reservation.destroy');
+
+    Route::get('/contact','ContactController@index')->name('contact.index');
+    Route::get('/contact/{id}','ContactController@show')->name('contact.show');
+    Route::delete('/contact/delete/{id}','ContactController@destroy')->name('contact.destroy');
+
+
+
 });
 
 

@@ -19,7 +19,13 @@
             <a class="waves-effect" href="{{ route('admin.slider.index')}}"><i class="menu-icon mdi mdi-calendar"></i><span>Slider</span></a>
         </li>
         <li class="{{ Request::is('admin/item*') ? 'current' : '' }}">
-            <a class="waves-effect" href="{{ route('admin.item.index')}}"><i class="menu-icon mdi mdi-calendar"></i><span>Item</span></a>
+            <a class="waves-effect" href="{{ route('admin.item.index')}}"><i class="menu-icon mdi mdi-calendar"></i><span>Food Item</span></a>
+        </li>
+        <li class="{{ Request::is('admin/reservation*') ? 'current' : '' }}">
+            <a class="waves-effect" href="{{ route('admin.reservation.index')}}"><i class="menu-icon mdi mdi-calendar"></i><span>Reservation</span></a>
+        </li>
+        <li class="{{ Request::is('admin/contact*') ? 'current' : '' }}">
+            <a class="waves-effect" href="{{ route('admin.contact.index')}}"><i class="menu-icon mdi mdi-calendar"></i><span>Contact</span></a>
         </li>
     </ul>
     <!-- /.menu js__accordion -->

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Category')
+@section('title','contact')
 
 @push('css')
 <style>
@@ -12,57 +12,53 @@
 </style>
 @endpush()
 
-@section('pageTitle','Category')
+@section('pageTitle','contact')
 
 @section('content')
-    <div class="margin">
-        <a href="{{ route('admin.category.create') }}" class="btn btn-success wave-effect wave-light" type="button">ADD CATEGORY</a>
-    </div>
 
     <div class="row small-spacing">
 			<div class="col-xs-12">
 				<div class="box-content">
-					<h4 class="box-title">Default</h4>
+					<h4 class="box-title">Contact</h4>
 					<table id="example" class="table table-striped table-bordered display" style="width:100%">
 						<thead>
 							<tr>
-								<th>ID</th>
-								<th>CATEGORY</th>
-								<th>ITEM</th>
-								<th>CREATED AT</th>
+								<th>NAME</th>
+								<th>EMAIL</th>
+								<th>SUBJECT AT</th>
+								<th>CREATE</th>
 								<th>ACTION</th>
 							</tr>
 						</thead>
 						<tfoot>
 							<tr>
-                                <th>ID</th>
-								<th>CATEGORY</th>
-								<th>ITEM</th>
-								<th>CREATED AT</th>
+								<th>NAME</th>
+								<th>EMAIL</th>
+								<th>SUBJECT AT</th>
+								<th>CREATE</th>
 								<th>ACTION</th>
 							</tr>
 						</tfoot>
 						<tbody>
-                            @if($categories->count() > 0)
-                            @foreach($categories as $key => $category)
+                            @if($contacts->count() > 0)
+                            @foreach($contacts as $key => $contact)
 							<tr>
-								<td>{{ $key + 1 }}</td>
-								<td>{{ $category->name }}</td>
+								<td>{{ $contact->name }}</td>
 								<td class="text-center">
 									<button type="button" class="btn bg-success btn-circle">
-									<span><b>{{ $category->items->count() }}</b></span></button>
+									<span><b>{{ $contact->items->count() }}</b></span></button>
 								</td>
-								<td>{{ $category->created_at }}</td>
+								<td>{{ $contact->created_at }}</td>
 								<td>
 									<a class="btn btn-info btn-sm waves-effect"
-										href="{{ route('admin.category.edit',$category->id) }}">
+										href="{{ route('admin.contact.edit',$contact->id) }}">
 										<span>Edit</span>
 									</a>
 									<button class="btn btn-danger btn-sm waves-effect"
-										onclick="deleteCategory( {{ $category->id }} )">
+										onclick="deletecontact( {{ $contact->id }} )">
 										<span>Delete</span>
 									</button>
-									<form id="delete-cat-{{$category->id}}" action="{{ route('admin.category.destroy',$category->id) }}" method="POST">
+									<form id="delete-cat-{{$contact->id}}" action="{{ route('admin.contact.destroy',$contact->id) }}" method="POST">
 										@csrf
 										@method('DELETE')
 									</form>
@@ -70,7 +66,7 @@
                             </tr>
                             @endforeach
                             @else
-                                <td>No data available now</td>
+                                <td>No contact available now</td>
                             @endif
 						</tbody>
 					</table>
@@ -90,7 +86,7 @@
 	<script src="{{ asset('assets/backend/scripts/datatables.demo.min.js') }}"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 	<script type="text/javascript">
-		function deleteCategory(id){
+		function deletecontact(id){
 
 			const swalWithBootstrapButtons = Swal.mixin({
 				customClass: {
