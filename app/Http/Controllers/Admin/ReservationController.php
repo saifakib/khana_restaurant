@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Reservation;
 use Brian2694\Toastr\Facades\Toastr;
+use App\Notifications\InformCustomer;
+use Illuminate\Support\Facades\Notification;
 
 class ReservationController extends Controller
 {
@@ -22,6 +24,10 @@ class ReservationController extends Controller
             $reserv->status = true;
             $reserv->save();
         }
+        
+        Notification::route('mail',$reserv->email )
+            ->notify(new InformCustomer($reserv));
+
         Toastr::success('Approves','Reserved');
         return redirect()->back();
     }

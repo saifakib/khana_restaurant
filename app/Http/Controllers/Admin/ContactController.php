@@ -14,13 +14,10 @@ class ContactController extends Controller
         return view('admin.contact.index',compact('contacts'));
     }
 
-    public function show($id)
-    {
-        return $id;
-    }
-
     public function destroy($id)
     {
-        return $id;
+        $contact = Contact::find($id)->delete();
+        Toastr::success('Removed Contact','ContectD');
+        return redirect()->back();
     }
 }
